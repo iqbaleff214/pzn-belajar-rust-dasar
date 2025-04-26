@@ -254,3 +254,20 @@ fn constant_test() {
     println!("Maximum value is {}.", MAXIMUM);
     println!("Minimum value is {}.", MINIMUM);
 }
+
+#[test]
+fn variable_scope_test() {
+    println!("global: maximum is {}", MAXIMUM);
+    
+    let a = 10;
+    println!("outer: a is {}", a);
+    {
+        let a = 20;
+        println!("scoped: a is {}", a);
+        
+        let b = 30;
+        println!("scoped: b is {}", b);
+    }
+    
+    // println!("b is {}", b); error 
+}
